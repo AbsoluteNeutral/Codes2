@@ -1,0 +1,5 @@
+For .c file: gcc Werror Wall Wextra ansi pedantic
+
+For .cpp file: g++ -Werror -Wall -Wextra -pedantic -std=c++11
+
+using MSVS compiler: cl /W4 /EHa /WX /Za

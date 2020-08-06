@@ -1,0 +1,40 @@
+c topic
+
+1. Compiler, cygwin/linux command
+2. printf, scanf
+3. Precedence and Associativity
+4. If, else if, else, ternary
+5. for loop, while, do while
+6. function declaration, defintination, complex declaration
+7. Array
+8. Pointer, point and array relation, double pointer
+9. malloc
+10. Struct, Union
+
+cpp topic
+1. namespace, scoping
+2. R reference
+3. constructor, order of constructor, destructor
+4. cpp classes, default ctor, ctor, copy ctor, const function
+5. operator overload
+6. vector, string, stack, queue etc... copy ctor technic
+7. function template
+8. function overloading
+9. complex declaration
+10. iterator
+11. class template, template specialization
+12. template T 
+13. inheritance
+
+cpp advanced topic
+1. move ctor, constructor order recap
+2. virtual function, virtual table, abstract class
+3. inheritance with virtual function
+4. more complex declaration
+5. dynamic cast, reinterpert cast, const_cast
+6. ref collasping rules
+7. functor
+8. std::forward, move, 
+9. varadic template
+.. type erasure, meta programming, tuple
+

@@ -1,0 +1,5 @@
+assimp: 	https://github.com/assimp/assimp/releases
+opencv: 	https://opencv.org/releases/
+fmod:		https://www.fmod.com/download
+sol2 (lua): 	https://github.com/ThePhD/sol2/releases
+imgui:		https://github.com/ocornut/imgui

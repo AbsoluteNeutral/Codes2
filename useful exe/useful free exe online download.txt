@@ -1,0 +1,6 @@
+Image converter (xnconvert.exe): 		https://www.xnview.com/en/xnconvert/#downloads
+Snap Image (SETUNA.exe)				https://github.com/tylearymf/SETUNA2/releass
+making 2D animation video using images		http://monkeyjam.org/
+
+Piriform Defraggler/CCleaner			https://www.ccleaner.com/defraggler
+Count lines of code 				https://sourceforge.net/projects/cloc/files/cloc/v1.60/

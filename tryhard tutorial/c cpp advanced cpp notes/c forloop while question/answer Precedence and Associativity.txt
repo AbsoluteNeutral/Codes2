@@ -1,0 +1,95 @@
+int main(void)
+{
+	int x=10, y =100%90 , i;
+	for(i=1; i <=10; i++)
+	if(x !=y);
+		printf("x = %d y = %d\n", x, y);
+}
+output:
+x = 10 y = 10
+
+#########################################
+
+int i;
+for(i = 0; i < 5; i+=2)
+	printf("%d ", i);
+output:
+0 2 4
+
+#########################################
+
+int i=5;
+while(i++<=8)
+	printf("%d ",i);
+output:
+6 7 8 9
+
+#########################################
+
+int i,j;
+for(i=j=2; i<10 && j < 30; ++i, ++j)
+{
+	i+=3;
+	j+=i;
+}
+
+Rewrite to while loop:
+int i,j;
+i=j=2;
+while(i<10 && j<30)
+{
+	i+=3;
+	j+=i;
+	++i;
+	++j;
+}
+
+#########################################
+
+int i=0, j=1;
+while(i<N)
+{
+	int tmp = i;
+	i=j;
+	j+= tmp;
+}
+
+Rewrite to do while loop:
+int i=0, j=1;
+
+if(i<N)
+{
+	do{
+		int tmp = i;
+		i=j;
+		j += tmp;
+	}while(i<N)
+}
+
+#########################################
+
+what is the print out?
+
+1)
+int i, sum;
+for(i = sum = 0; i< 10 ++ i)
+{
+	if(2 == i% 3) sum+=i;
+	else continue;
+}
+printf("%d %d" ,i ,sum);
+
+output: 
+10 15
+
+2)
+int i=1;
+for(;;)
+	if(i>=10)break;
+	else
+		if(i%2) i+=2;
+		else i-=2;
+printf("%d", i);
+
+output: 
+11

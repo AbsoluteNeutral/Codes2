@@ -1,0 +1,242 @@
+/* ######################################## question 1 */
+typedef struct
+{
+  short s;
+  char* buf;
+  char c;
+  float f;
+  
+} T;
+
+int main()
+{
+  T* pt = (T*) malloc (sizeof(T)+50);
+  pt->buf = (char*) pt + sizeof(T);
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 4 bytes */
+  /*
+  1. sizeof(T)    =16
+  2. &pt->s       =1000
+  3. &pt->buf     =1004
+  4. &pt->c       =1008
+  5. &pt->f       =1012
+  6. pt->buf      =1016
+  7. &pt->buf[40] =1056
+  8. &pt[1].buf   =1020 
+  
+  Max size padding 4 bytes
+  1000 - s   [2 bytes]
+             [2 pad]
+  1004 - buf [4 bytes]
+  1008 - c   [2 bytes]
+             [2 pad]
+  1012 -   f [4 bytes]
+  1016 -
+  */
+}
+
+/* ######################################## question 2 */
+typedef struct
+{
+  char buf1 [9];
+  unsigned short s;
+  double d;
+  char buf2[3];
+  
+} T;
+
+int main()
+{
+  T* pt1 = (T*)malloc(sizeof(T) + 24);
+  T* pt2 = (T*)((char*)pt1 + 8);
+  int i;
+  for(i=0; i<10; ++i)
+  {
+    pt2->buf1[i] = i;
+  }
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 4 bytes */
+  /* Assume Little Endian */
+  /*
+  1. sizeof(T)    =40
+  2. &pt1->buf1   =1000
+  3. &pt1->s      =1016
+  4. &pt1->d      =1024
+  5. &pt1->buf2   =1032
+  6. pt1->buf1[8] =0
+  7. pt1->s       =0x0908
+  8. &pt2->buf2   =1040 
+  
+  Max size padding 8 bytes
+  1000 - buf1 [9 bytes]
+  1008        [7 pad]
+  1016 - s    [2 bytes]
+              [6 pad]
+  1024 - d    [8 bytes]
+  1032 - buf2 [3 bytes]
+              [5 pad]
+  1040 -
+  
+  1000 - buf1 [0x00]
+              [0x00]
+              [0x00]
+              [0x00]
+              [0x00]
+              [0x00]
+              [0x00]
+              [0x00]
+  1008 -      [0x00]
+              [0x01]
+              [0x02]
+              [0x03]
+              [0x04]
+              [0x05]
+              [0x06]
+              [0x07]
+  1016 -      [0x08]
+              [0x09]
+              [0x00]
+  */
+}
+
+/* ######################################## question 3 */
+union T
+{
+  int x[2];
+  char c[4];
+  short s[6];
+  
+};
+
+int main()
+{
+  T dp;
+  dp.x[0] = 128;//0x00000080
+  dp.x[1] = 256;//0x00000100
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 8 bytes */
+  /* Assume Little Endian */
+  /*
+  1. sizeof(T) =12
+  2. dp.c[0]    =-128
+  3. dp.c[1]    =0
+  4. dp.c[2]    =0
+  5. dp.c[3]    =0
+  6. dp.d[0]    =128
+  7. dp.d[2]    =256
+  8. dp.d[4]    =rubbish value 
+  
+  Max size padding 4 bytes
+  1000 - x  [0x80]  1000 - c  [0x00]  1000 - s  [0x00]
+            [0x00]            [0x00]            [0x00]
+            [0x00]            [0x00]  1002 -    [0x00]
+            [0x00]            [0x00]            [0x00]
+  1004 -    [0x00]  1004 -            1004 -    [0x00]
+            [0x10]                              [0x00]
+            [0x00]                    1006 -    [0x00]
+            [0x00]                              [0x00]
+  1008 -                              1008 -    [0x00]
+                                                [0x00]
+                                      1010 -    [0x00]
+                                                [0x00]
+  1012 -    
+  */
+}
+
+/* ######################################## question 4 */
+typedef struct
+{
+  short s1;
+  char b1[3];
+  short s2;
+  char b2[3];
+  double d;
+  float f;
+  
+} T;
+
+int main()
+{
+  T a[3];
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 8 bytes */
+  /* Assume Little Endian */
+  
+  /*
+  1. sizeof(T) =48
+  2. sizeof(a) =48*3=144 (48 % 8 = 0)
+  3. &a[0].b1  =1008
+  4. &a[1].b2  =1072
+  5. &a[2].b1  =1104
+  6. &a[1].d   =1080
+  7. &(*a).s2  =1016
+  8. &a[2].d   =1128
+  
+  Max size padding 8 bytes
+  1000 - s1   [2 bytes]
+              [6 pad]
+  1008 - b1   [3 bytes]
+              [5 pad]
+  1016 - s2   [2 bytes]
+              [6 pad]
+  1024 - b2   [3 bytes]
+              [5 pad]
+  1032 - d    [8 bytes]
+  1040 - f    [4 bytes]
+              [4 pad]
+  1048 - 
+
+  */
+}
+
+/* ######################################## question 5 */
+typedef struct
+{
+  short s;
+  int **p;
+  int i;
+  
+} T;
+
+int main()
+{
+  T s1;                                 /* Assume address start is 1000(base 10) */
+  int i;
+  s1.p = (int**)malloc(5*sizeof(int*)); /* Assume address start at 2000(base 10) */
+  for(i=0; i<5; ++i)
+  {
+    s1.p[i] = (int*)malloc(6*sizeof(int));
+    /* Assume address 2048, 2096, 3040, 3048, 3096
+    
+    */
+  }
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 8 bytes */
+  /* Assume Little Endian */
+  
+  /*
+  1. sizeof(T)    =24
+  2. sizeof(s1.p) =8
+  3. &s1.p        =1008
+  3. s1.p         =2000
+  4. *s1.p        =s1.p[0]    = 2048
+  5. **s1.p       =s1.p[0][0] = rubbish value
+  6. *(s1.p+4)    =s1.p[4]    = 3096
+  7. s1.p[3][4]   =rubbish value
+  7. &s1.p[3][4]  =3080
+  8. &s1.i        =1016
+  
+  Max size padding 8 bytes
+  1000 - s    [2 bytes]         2000 - *p [8 bytes][0]   -> 2048 [24 bytes]
+              [6 pad]           2008      [8 bytes][1]   -> 2096 [24 bytes]
+  1008 - **p  [8 bytes]     ->  2016      [8 bytes][2]   -> 3040 [24 bytes]
+  1016 - i    [4 bytes]         2024      [8 bytes][3]   -> 3064 [24 bytes]
+              [4 pad]           2032      [8 bytes][4]   -> 3096 [24 bytes]
+  1024 -                        2040      
+  */
+}

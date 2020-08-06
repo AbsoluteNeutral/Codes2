@@ -1,0 +1,26 @@
+Use parathesis to reflect the correct precendence and associativity
+
+a) a * b - c * d + e   ->  (((a * b) - (c * d)) + e)
+b) a / b % c / d   		 ->  (((a / b) % c) / d)
+c) i + - j * 6  		   ->  (i + ((- j) * 6))
+d) i + + 4  		   		 ->  (i + (+ 4))
+e) i-- * j + k  		   ->  (((i--) * j) + k)
+f) i + - -j * m++ + n  ->  ((i + ((- (-j)) * (m++))) + n)
+
+
+
+i=5 j=10, Give resulting  value, if error put NC
+
+a) i++ - 1							= 4
+b) i++ - --j						= -4
+c) i = j++ = ++i				= NC
+d) i = j + 10						= 20
+e) i = (i=3) * --j      = 27
+f) j = 3 + --i * 2      = (3 + ((--i) * 2)) = 11
+g) i * j / i						= ((i * j) / i)			= 10
+h) i += j *= 3					= (i += (j *= 3))	  = 35
+i) -- i ++							= NC
+j) - - i ++							= ((- (- i)) ++)    = 5
+
+
+

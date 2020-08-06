@@ -1,0 +1,44 @@
+Secondary 3(age 15) 2008
+
+1. Solution of Quadratic Equation (solving)
+2. Indices
+3. Linear Inequalitites
+4. Variations
+5. Graphs of Function
+6. Kinematics
+7. Trigonometry
+8. Congruent Triangles
+9. Similar Triangles
+10.Area of Volume of Similar Solids
+11.Angle Properties of Circles
+12.Circular Measure
+13.Matrices
+
+Secondary 4(age 16) 2009
+
+1. Trigo Equations
+2. Proving Trigonometric Identities
+3. Further Trigonometry
+4. Differentiation
+- Basic Rule
+- Chain Rule
+- Product Rule
+- Quatient Rule
+- Rate of Change
+- Max min
+5. Integration
+- Equations of Curves
+- Definite Integrals
+- Area of curves
+
+Secondary 5(age 17) 2010
+
+1. Partial Fractions
+2. Lograithms
+3. Modulus Function
+4. Further Trigonometry -R and Factor Formulae
+5. Linear Law (draw graphs)
+6. Differentiation - Trigonometry, Exponential Function, Logarithmic Functions
+7. Integration - Trigonometry, Exponential Function, Logarithmic Functions
+8. Geometrical Proofs
+9. Probability

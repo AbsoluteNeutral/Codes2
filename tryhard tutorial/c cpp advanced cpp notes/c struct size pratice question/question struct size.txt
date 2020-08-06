@@ -1,0 +1,176 @@
+/* ######################################## question 1 */
+typedef struct
+{
+  short s;
+  char* buf;
+  char c;
+  float f;
+  
+} T;
+
+int main()
+{
+  T* pt = (T*) malloc (sizeof(T)+50);
+  pt->buf = (char*) pt + sizeof(T);
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 4 bytes */
+  /*
+  1. sizeof(T)    =
+  2. &pt->s       =
+  3. &pt->buf     =
+  4. &pt->c       =
+  5. &pt->f       =
+  6. pt->buf      =
+  7. &pt->buf[40] =
+  8. &pt[1].buf   = 
+  
+  Draw diagram:
+
+  */
+}
+
+/* ######################################## question 2 */
+typedef struct
+{
+  char buf1 [9];
+  unsigned short s;
+  double d;
+  char buf2[3];
+  
+} T;
+
+int main()
+{
+  T* pt1 = (T*)malloc(sizeof(T) + 24);
+  T* pt2 = (T*)((char*)pt1 + 8);
+  int i;
+  for(i=0; i<10; ++i)
+  {
+    pt2->buf1[i] = i;
+  }
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 4 bytes */
+  /* Assume Little Endian */
+  /*
+  1. sizeof(T)    =
+  2. &pt1->buf1   =
+  3. &pt1->s      =
+  4. &pt1->d      =
+  5. &pt1->buf2   =
+  6. pt1->buf1[8] =
+  7. pt1->s       =
+  8. &pt2->buf2   =
+  
+    Draw diagram:
+  */
+}
+
+/* ######################################## question 3 */
+union T
+{
+  int x[2];
+  char c[4];
+  short s[6];
+  
+};
+
+int main()
+{
+  T dp;
+  dp.x[0] = 128;//0x00000080
+  dp.x[1] = 256;//0x00000100
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 8 bytes */
+  /* Assume Little Endian */
+  /*
+  1. sizeof(T)  =
+  2. dp.c[0]    =
+  3. dp.c[1]    =
+  4. dp.c[2]    =
+  5. dp.c[3]    =
+  6. dp.d[0]    =
+  7. dp.d[2]    =
+  8. dp.d[4]    =
+  
+    Draw diagram:
+  
+  */
+}
+
+/* ######################################## question 4 */
+typedef struct
+{
+  short s1;
+  char b1[3];
+  short s2;
+  char b2[3];
+  double d;
+  float f;
+  
+} T;
+
+int main()
+{
+  T a[3];
+  
+  /* Assume address of pt is 1000(base 10) */
+  /* Assume size of pt is 8 bytes */
+  /* Assume Little Endian */
+  
+  /*
+  1. sizeof(T) =
+  2. sizeof(a) =
+  3. &a[0].b1  =
+  4. &a[1].b2  =
+  5. &a[2].b1  =
+  6. &a[1].d   =
+  7. &(*a).s2  =
+  8. &a[2].d   =
+  
+    Draw diagram:
+
+  */
+}
+
+/* ######################################## question 5 */
+typedef struct
+{
+  short s;
+  int **p;
+  int i;
+  
+} T;
+
+int main()
+{
+  T s1;                                 /* Assume address start is 1000(base 10) */
+  int i;
+  s1.p = (int**)malloc(5*sizeof(int*)); /* Assume address start at 2000(base 10) */
+  for(i=0; i<5; ++i)
+  {
+    s1.p[i] = (int*)malloc(6*sizeof(int));
+    /* Assume address 2048, 2096, 3040, 3064, 3096
+    
+    */
+  }
+ 
+  /* Assume size of pt is 8 bytes */
+  /*
+  1. sizeof(T)    =
+  2. sizeof(s1.p) =
+  3. &s1.p        =
+  3. s1.p         =
+  4. *s1.p        =
+  5. **s1.p       =
+  6. *(s1.p+4)    =
+  7. s1.p[3][4]   =
+  7. &s1.p[3][4]  =
+  8. &s1.i        =
+  
+    Draw diagram:
+  
+  */
+}
